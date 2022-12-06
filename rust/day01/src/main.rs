@@ -33,13 +33,19 @@ fn main() {
     println!("{} elves", n_elves);
     let sums = elves.iter().map(|x| x.1).collect::<Vec<i32>>();
     let max = sums.iter().max().unwrap();
-    let max_formatted = human_format::Formatter::new().with_decimals(0).format((*max as f32).into());
-    println!("{} calories carried by the elf with the most", max_formatted);
+    println!("{} calories carried by the elf with the most", max);
     for (i, x) in elves.iter().enumerate() {
         if x.1 == *max {
-            elf_with_max = i + 1;
+            elf_with_max = i;
         }
     }
-    println!("That was elf # {}!", elf_with_max);
+    println!("That was elf # {}!", elf_with_max + 1);
+    // Find the top 3 elves:
+    let mut top_3 = elves.clone();
+    top_3.sort_by(|a, b| b.1.cmp(&a.1));
+    println!("The top 3 elves are:");
+    for i in 0..3 {
+        println!("Elf #{} with {} calories", top_3[i].0 + 1, top_3[i].1);
+    }
 }
 
