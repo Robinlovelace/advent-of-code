@@ -9,7 +9,6 @@ x = 1
 
 ```{zsh}
 #| eval: true
-fddfddf
 cd rust/day01
 cargo run
 ```
