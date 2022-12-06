@@ -7,20 +7,22 @@ fn main() {
     let mut elves: Vec<(usize, i32)> = Vec::new();
     // Count how many elves there are:
     let mut elf = 0;
-    // add the contents of each line:
+    // Add total calorie counter:
     let mut sum = 0;
+    // Calories per elf:
+    let mut elf_calories = 0; 
     for line in res.lines() {
-        let mut sum_elf: i32 = 0;
         // ignore empty lines:
-        if line.len() == 0 {
-            elves.push((elf, sum_elf));
+        if line.len() != 0 {
+            let num: i32 = line.parse().unwrap();
+            // Sum of calories for each elf
+            elf_calories += num;
+            sum += num;
+        } else {
+            elves.push((elf, elf_calories));
             elf += 1;
-            sum_elf = 0;
-            continue;
+            elf_calories = 0;
         }
-        let num: i32 = line.parse().unwrap();
-        sum_elf += num;
-        sum += sum_elf;
     }
     // Convert sum into float
     let sum = sum as f32;
