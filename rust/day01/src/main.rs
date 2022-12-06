@@ -1,18 +1,8 @@
-use std::fs::File;
-use std::io::Read;
-
-fn read_file(path: &str) -> String {
-    let mut file = File::open(path).expect("file not found");
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)
-        .expect("something went wrong reading the file");
-    contents
-}
-
+use std::fs::read_to_string;
 
 fn main() {
     // println!("Hello, world!");
-    let res = read_file("input");
+    let res: String = read_to_string("input").unwrap();
     // add the contents of each line:
     let mut sum = 0;
     for line in res.lines() {
