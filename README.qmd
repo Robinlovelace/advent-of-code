@@ -1,0 +1,11 @@
+---
+output: github_document
+---
+
+```{bash}
+cd rust/day01
+cargo run
+```
+
+```{bash}
+```
