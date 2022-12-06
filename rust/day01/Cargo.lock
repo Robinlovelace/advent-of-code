@@ -5,3 +5,12 @@ version = 3
 [[package]]
 name = "day01"
 version = "0.1.0"
+dependencies = [
+ "human_format",
+]
+
+[[package]]
+name = "human_format"
+version = "1.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "86cce260d758a9aa3d7c4b99d55c815a540f8a37514ba6046ab6be402a157cb0"
