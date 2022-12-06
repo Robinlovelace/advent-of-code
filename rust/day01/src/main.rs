@@ -11,6 +11,7 @@ fn main() {
     let mut sum = 0;
     // Calories per elf:
     let mut elf_calories = 0; 
+    let mut elf_with_max = 0;
     for line in res.lines() {
         // ignore empty lines:
         if line.len() != 0 {
@@ -30,4 +31,15 @@ fn main() {
     let sum_formatted = human_format::Formatter::new().with_decimals(0).format(sum.into());
     println!("{} calories carried by", sum_formatted);
     println!("{} elves", n_elves);
+    let sums = elves.iter().map(|x| x.1).collect::<Vec<i32>>();
+    let max = sums.iter().max().unwrap();
+    let max_formatted = human_format::Formatter::new().with_decimals(0).format((*max as f32).into());
+    println!("{} calories carried by the elf with the most", max_formatted);
+    for (i, x) in elves.iter().enumerate() {
+        if x.1 == *max {
+            elf_with_max = i + 1;
+        }
+    }
+    println!("That was elf # {}!", elf_with_max);
 }
+

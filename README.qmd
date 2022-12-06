@@ -2,7 +2,14 @@
 format: gfm
 ---
 
-```{bash}
+```{r}
+#| echo: false
+x = 1
+```
+
+```{zsh}
+#| eval: true
+fddfddf
 cd rust/day01
 cargo run
 ```
