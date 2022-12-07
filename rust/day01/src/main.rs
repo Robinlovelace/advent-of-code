@@ -13,7 +13,7 @@ fn main() {
     let mut elf_with_max = 0;
     for line in read_to_string("input").unwrap().lines() {
         // ignore empty lines:
-        if line.len() != 0 {
+        if line.is_empty() {
             let num: i32 = line.parse().unwrap();
             // Sum of calories for each elf
             elf_calories += num;
