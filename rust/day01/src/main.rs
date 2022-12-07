@@ -2,7 +2,6 @@ use std::fs::read_to_string;
 extern crate human_format;
 
 fn main() {
-    let res: String = read_to_string("input").unwrap();
     // Create each 'elf' as a tuple of (id, calories):
     let mut elves: Vec<(usize, i32)> = Vec::new();
     // Count how many elves there are:
@@ -12,7 +11,7 @@ fn main() {
     // Calories per elf:
     let mut elf_calories = 0; 
     let mut elf_with_max = 0;
-    for line in res.lines() {
+    for line in read_to_string("input").unwrap().lines() {
         // ignore empty lines:
         if line.len() != 0 {
             let num: i32 = line.parse().unwrap();
@@ -44,8 +43,11 @@ fn main() {
     let mut top_3 = elves.clone();
     top_3.sort_by(|a, b| b.1.cmp(&a.1));
     println!("The top 3 elves are:");
+    let mut sum_top = 0;
     for i in 0..3 {
         println!("Elf #{} with {} calories", top_3[i].0 + 1, top_3[i].1);
+        sum_top += top_3[i].1;
     }
+    println!("In total the top 3 elves carried {} calories", sum_top);
 }
 
