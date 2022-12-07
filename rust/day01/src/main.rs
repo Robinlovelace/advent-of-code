@@ -12,18 +12,19 @@ fn main() {
     let mut elf_calories = 0; 
     let mut elf_with_max = 0;
     for line in read_to_string("input").unwrap().lines() {
-        // ignore empty lines:
-        if line.is_empty() {
+        // Create a new elf if the line is empty, add calories to the elf otherwise:
+        if !line.is_empty() {
             let num: i32 = line.parse().unwrap();
             // Sum of calories for each elf
             elf_calories += num;
-            sum += num;
         } else {
             elves.push((elf, elf_calories));
             elf += 1;
             elf_calories = 0;
         }
     }
+    // Add the last elf:
+    elves.push((elf, elf_calories));
     // Convert sum into float
     let sum = sum as f32;
     let n_elves = elf + 1;
