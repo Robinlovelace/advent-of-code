@@ -26,9 +26,9 @@ fn main() {
     // Add the last elf:
     elves.push((elf, elf_calories));
     // Convert sum into float
-    let sum = sum as f32;
-    let n_elves = elf + 1;
-    let sum_formatted = human_format::Formatter::new().with_decimals(0).format(sum.into());
+    for x in &elves { sum += x.1 }
+    let n_elves = elves.len();
+    let sum_formatted = human_format::Formatter::new().format(sum.into());
     println!("{} calories carried by", sum_formatted);
     println!("{} elves", n_elves);
     let sums = elves.iter().map(|x| x.1).collect::<Vec<i32>>();
