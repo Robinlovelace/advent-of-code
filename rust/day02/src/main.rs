@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use std::fs::read_to_string;
 
 // Create enum for the items:
@@ -26,16 +25,16 @@ impl Item {
         }
     }
     // Function to calculate points from winning:
-    fn outcome(&self, other: &Item) -> Option<usize> {
+    fn outcome(&self, other: &Item) -> usize {
         // 3 points for a draw:
         if self == other {
-            return Some(3);
+            return 3;
         }
         // 6 points for a win:
         // Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock
         match (self, other) {
-            (Rock, Scissors) | (Scissors, Paper) | (Paper, Rock) => Some(6),
-            _ => Some(0),
+            (Rock, Scissors) | (Scissors, Paper) | (Paper, Rock) => 6,
+            _ => 0,
         }
     }
     // Parse A to C and X to Z to Item:
@@ -72,7 +71,7 @@ fn main() {
         let winner = item2.outcome(&item1);
         // Print the winner:
         // println!("The winner is {} with {} points and a win value of {}", item2, value2, winner);
-        total += winner.unwrap() + value2;
+        total += winner + value2;
     }
     println!("Total points: {}", total);
 }
