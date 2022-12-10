@@ -42,7 +42,7 @@ fn main() {
     // // Print the lookup table:
     // println!("{:?}", lookup_item);
     // Read the file
-    let contents = read_to_string("input.test").unwrap();
+    let contents = read_to_string("input.txt").unwrap();
     // Iterate over the lines:
     for line in contents.lines() {
         // Split the line into words:
