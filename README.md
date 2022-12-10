@@ -5,8 +5,14 @@ Advent of Code
 
 | directory   | Benchmark (seconds) | N. code files | Lines of code | Lines of comments |
 |:------------|--------------------:|--------------:|--------------:|------------------:|
-| rust//day01 |               0.046 |             2 |            49 |                10 |
+| rust//day01 |               0.047 |             2 |            49 |                10 |
 | rust//day02 |               0.048 |             2 |            55 |                23 |
+
+# R
+
+| directory | Benchmark (seconds) | N. code files | Lines of code | Lines of comments |
+|:----------|--------------------:|--------------:|--------------:|------------------:|
+| R//day01  |               1.446 |             1 |            12 |                 2 |
 
 ## Reproduce the results:
 
@@ -17,7 +23,7 @@ cargo run
 
        Compiling human_format v1.0.3
        Compiling day01 v0.1.0 (/home/robin/learning/advent-of-code/rust/day01)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.67s
+        Finished dev [unoptimized + debuginfo] target(s) in 0.71s
          Running `target/debug/day01`
     11.73 M calories carried by
     259 elves

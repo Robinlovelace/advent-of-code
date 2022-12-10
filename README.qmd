@@ -22,7 +22,12 @@ library(tidyverse)
 ```{r}
 benchmark = function(directory = "rust/day01/") {
   wd = setwd(directory)
-  system("hyperfine --warmup 3 'cargo run' --export-csv benchmark.csv")
+  if("Cargo.toml" %in% list.files()) {
+    system("hyperfine --warmup 3 'cargo run' --export-csv benchmark.csv")
+  }
+  if(any(grepl(pattern = ".R", x = list.files()))) {
+    system("hyperfine --warmup 3 'Rscript *.R' --export-csv benchmark.csv")
+  }
   sys_time = read_csv("benchmark.csv")
   setwd(wd)
   sys_time = sys_time["mean"]
@@ -50,6 +55,19 @@ loc_bench = function(directory = "rust/day01/") {
 rust_directories = list.dirs(path = "rust/", full.names = TRUE, recursive = FALSE)
 loc_rust = purrr::map_dfr(rust_directories, loc_bench)
 loc_rust %>% 
+  knitr::kable(digits = 3)
+```
+
+# R
+
+```{r}
+remotes::install_cran("here")
+```
+
+```{r}
+r_directories = list.dirs(path = "R/", full.names = TRUE, recursive = FALSE)
+loc_r = purrr::map_dfr(r_directories, loc_bench)
+loc_r %>% 
   knitr::kable(digits = 3)
 ```
 
