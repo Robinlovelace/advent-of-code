@@ -1,19 +1,73 @@
 ---
 format: gfm
 engine: knitr
+title: "Advent of Code"
 ---
 
+```{r}
+#| echo: false
+#| message: false
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+# Check to see if remotes package is installed:
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+# Install packages we'll use with remotes:
+remotes::install_cran("tidyverse")
+remotes::install_github("hrbrmstr/cloc")
+library(tidyverse)
+```
+
+
+```{r}
+benchmark = function(directory = "rust/day01/") {
+  wd = setwd(directory)
+  system("hyperfine --warmup 3 'cargo run' --export-csv benchmark.csv")
+  sys_time = read_csv("benchmark.csv")
+  setwd(wd)
+  sys_time = sys_time["mean"]
+  names(sys_time) = "Benchmark (seconds)"
+  sys_time
+}
+lines_of_code = function(directory = "rust/day01/") {
+  unlink(file.path(directory, "target"), recursive = TRUE)
+  loc = cloc::cloc(directory)
+  loc_min = loc[c("file_count", "loc", "comment_lines")]
+  names(loc_min) = c("N. code files", "Lines of code", "Lines of comments")
+  tail(loc_min, n = 1)
+}
+loc_bench = function(directory = "rust/day01/") {
+  bench = benchmark(directory)
+  loc = lines_of_code(directory)
+  cbind(directory = directory, bench, loc)
+}
+```
+
+
+# Rust
+
+```{r}
+rust_directories = list.dirs(path = "rust/", full.names = TRUE, recursive = FALSE)
+loc_rust = purrr::map_dfr(rust_directories, loc_bench)
+loc_rust %>% 
+  knitr::kable(digits = 3)
+```
+
+## Reproduce the results:
+
 ```{zsh}
-#| eval: true
+#| echo: true
 cd rust/day01
 cargo run
 ```
 
 ```{bash}
+#| echo: true
 cd rust/day02
 cargo run
 ```
 
 ```{bash}
+#| echo: true
 # cd rust/day03
 ```
