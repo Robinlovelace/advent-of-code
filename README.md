@@ -17,4 +17,15 @@ cargo run
     In total the top 3 elves carried 204639 calories
 
 ``` bash
+cd rust/day02
+cargo run
+```
+
+       Compiling day02 v0.1.0 (/home/robin/learning/advent-of-code/rust/day02)
+        Finished dev [unoptimized + debuginfo] target(s) in 0.25s
+         Running `target/debug/day02`
+    Total points: 10404
+
+``` bash
+# cd rust/day03
 ```

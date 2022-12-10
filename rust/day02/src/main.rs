@@ -56,8 +56,7 @@ fn main() {
         // Lookup the winner:
         let winner = lookup_win[&format!("{} {}", item1, item2)];
         // Print the winner:
-        println!("The winner is {} with {} points and a win value of {}", item2, value2, winner);
-        // println!("{} {} {} {} {}", item1, value1, item2, value2, winner);
+        // println!("The winner is {} with {} points and a win value of {}", item2, value2, winner);
         total += winner + value2;
     }
     println!("Total points: {}", total);

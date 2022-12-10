@@ -1,11 +1,7 @@
 ---
 format: gfm
+engine: knitr
 ---
-
-```{r}
-#| echo: false
-x = 1
-```
 
 ```{zsh}
 #| eval: true
@@ -14,4 +10,10 @@ cargo run
 ```
 
 ```{bash}
+cd rust/day02
+cargo run
+```
+
+```{bash}
+# cd rust/day03
 ```
