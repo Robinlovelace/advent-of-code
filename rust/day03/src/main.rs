@@ -24,7 +24,7 @@ fn main() {
         // println!("{} {}", i, c + 1);
     }
     // Read in file:
-    let contents = read_to_string("input.test").unwrap();
+    let contents = read_to_string("input.txt").unwrap();
     // Print the contents:
     // println!("{}", contents);
     // // get a single line:
