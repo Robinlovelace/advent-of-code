@@ -3,17 +3,18 @@ Advent of Code
 
 # Rust
 
-| directory   | Benchmark (seconds) | N. code files | Lines of code | Lines of comments |
-|:------------|--------------------:|--------------:|--------------:|------------------:|
-| rust//day01 |               0.047 |             2 |            49 |                10 |
-| rust//day02 |               0.055 |             2 |            55 |                23 |
+| directory         | Benchmark (seconds) | N. code files | Lines of code | Lines of comments |
+|:------------------|--------------------:|--------------:|--------------:|------------------:|
+| rust//day01       |               0.047 |             2 |            49 |                10 |
+| rust//day02       |               0.048 |             2 |            55 |                23 |
+| rust//day02_part2 |               0.057 |             2 |            69 |                37 |
 
 # R
 
 | directory       | Benchmark (seconds) | N. code files | Lines of code | Lines of comments |
 |:----------------|--------------------:|--------------:|--------------:|------------------:|
-| R//day01        |               1.499 |             1 |            12 |                 2 |
-| R//day01-agila5 |               0.182 |             1 |             9 |                 2 |
+| R//day01        |               1.479 |             1 |            12 |                 2 |
+| R//day01-agila5 |               0.181 |             1 |             9 |                 2 |
 
 ## Reproduce the results:
 
@@ -24,7 +25,7 @@ cargo run
 
        Compiling human_format v1.0.3
        Compiling day01 v0.1.0 (/home/robin/learning/advent-of-code/rust/day01)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.65s
+        Finished dev [unoptimized + debuginfo] target(s) in 0.67s
          Running `target/debug/day01`
     11.73 M calories carried by
     259 elves
@@ -42,7 +43,7 @@ cargo run
 ```
 
        Compiling day02 v0.1.0 (/home/robin/learning/advent-of-code/rust/day02)
-        Finished dev [unoptimized + debuginfo] target(s) in 0.50s
+        Finished dev [unoptimized + debuginfo] target(s) in 0.49s
          Running `target/debug/day02`
     Total points: 10404
 
