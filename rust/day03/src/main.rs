@@ -40,9 +40,9 @@ fn main() {
         // Split the line into two halves:
         let (first, second) = line.split_at(half);
         // Check for shared characters in the two halves:
-        for (i, c) in first.chars().enumerate() {
+        for (_i, c) in first.chars().enumerate() {
             // For loop over characters in second half:
-            for (j, d) in second.chars().enumerate() {
+            for (_j, d) in second.chars().enumerate() {
                 // Check if the characters are the same:
                 if c == d {
                     // Print the characters:
