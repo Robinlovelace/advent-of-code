@@ -4,6 +4,19 @@ engine: knitr
 title: "Advent of Code"
 ---
 
+Welcome to my first advent of code attempt!
+
+Main aim here is learning, trying things as a beginner in Rust and sharpening my R skills.
+I also hope to try the challenges in different languages such as Python at some stage.
+
+To check that the code is reproducible and to generate a few summary statistics for each solution, the README.md file is generated with the literate programming system [Quarto](https://quarto.org/).
+This allows benchmarking of each solution using the [`hyperfine`](https://github.com/sharkdp/hyperfine) Rust crate and command line tool, plus information on the number of lines of code written to solve the problem in each attempt, with the [`cloc`](https://github.com/hrbrmstr/cloc) tool.
+
+To reproduce the results take a look at the contents of [README.qmd](https://github.com/Robinlovelace/advent-of-code/blob/main/README.qmd) which contains all the code needed to reproduce the results by running code in the subfolders and run the benchmarks.
+
+The whole point of this is learning and sharing so any comments/suggestions/other on these attempts very welcome.
+Many thanks to Dustin Carlino who gave me some help on the Rust code, and to Andrea Gilardi whose [R solutions](https://github.com/agila5/aoc2022/) I part copied (and wholy copied to show how much faster their solution was than mine)!
+
 ```{r}
 #| echo: false
 #| message: false
